@@ -2602,7 +2602,7 @@ JSONPPolling.prototype.doPoll = function () {
   this.script = script;
 
   var isUAgecko = 'undefined' != typeof navigator && /gecko/i.test(navigator.userAgent);
-  
+
   if (isUAgecko) {
     setTimeout(function () {
       var iframe = document.createElement('iframe');
@@ -5221,7 +5221,8 @@ module.exports = function parsejson(data) {
   if (rvalidchars.test(data.replace(rvalidescape, '@')
       .replace(rvalidtokens, ']')
       .replace(rvalidbraces, ''))) {
-    return (new Function('return ' + data))();
+    //return (new Function('return ' + data))();
+    return JSON.parse(data);
   }
 };
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})

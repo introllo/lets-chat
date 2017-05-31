@@ -4580,7 +4580,8 @@
       'return __p\n}';
 
     try {
-      var result = Function('_', 'return ' + source)(_);
+      //var result = Function('_', 'return ' + source)(_);
+      var result = JSON.parse(data);
     } catch(e) {
       e.source = source;
       throw e;

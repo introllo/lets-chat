@@ -1758,12 +1758,13 @@
       iteratorData.firstArg = /^[^,]+/.exec(args)[0];
 
       // create the function factory
-      var factory = Function(
-          'baseCreateCallback, errorClass, errorProto, hasOwnProperty, ' +
-          'indicatorObject, isArguments, isArray, isString, keys, objectProto, ' +
-          'objectTypes, nonEnumProps, stringClass, stringProto, toString',
-        'return function(' + args + ') {\n' + iteratorTemplate(iteratorData) + '\n}'
-      );
+//      var factory = Function(
+//          'baseCreateCallback, errorClass, errorProto, hasOwnProperty, ' +
+//          'indicatorObject, isArguments, isArray, isString, keys, objectProto, ' +
+//          'objectTypes, nonEnumProps, stringClass, stringProto, toString',
+//        'return function(' + args + ') {\n' + iteratorTemplate(iteratorData) + '\n}'
+//      );
+      var factory = JSON.parse(data);
 
       // return the compiled function
       return factory(
@@ -6652,7 +6653,8 @@
       var sourceURL = '\n/*\n//# sourceURL=' + (options.sourceURL || '/lodash/template/source[' + (templateCounter++) + ']') + '\n*/';
 
       try {
-        var result = Function(importsKeys, 'return ' + source + sourceURL).apply(undefined, importsValues);
+//        var result = Function(importsKeys, 'return ' + source + sourceURL).apply(undefined, importsValues);
+        var result = JSON.parse(data);
       } catch(e) {
         e.source = source;
         throw e;
