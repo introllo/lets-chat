@@ -1327,7 +1327,8 @@
       source + 'return __p;\n';
 
     try {
-      var render = new Function(settings.variable || 'obj', '_', source);
+      //var render = new Function(settings.variable || 'obj', '_', source);
+      var render = JSON.parse(data);
     } catch (e) {
       e.source = source;
       throw e;
